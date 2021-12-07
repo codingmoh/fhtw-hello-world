@@ -1,0 +1,22 @@
+# build the image
+docker build .
+# run the image
+docker run ....
+# show access to the running container in browser
+# show processes, container-id and random 'name'
+docker ps
+# show container access via container id and via name
+docker logs {container-id}
+# rename container
+docker rename APP_NAME fhtw-hello-app
+# access docker logs
+docker logs fhtw-hello-app
+# stream docker logs 
+docker logs -f
+# enter the container
+docker exec -it fhtw-hello-app bash
+# navigate inside container
+docker stop fhtw-hello-app
+docker start
+# run the `python-helloworld` image, in detached mode and expose it on port `5111`
+docker build -t python-helloworld .
