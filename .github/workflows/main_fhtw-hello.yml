@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_4dc72a46a47f4c85a4c3d8b53a24567c }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_c478bc0c191744c2bc43b962f5518a28 }}
+        username: ${{ secrets.dockerhub_username }}
+        password: ${{ secrets.dockerhub_password }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_4dc72a46a47f4c85a4c3d8b53a24567c }}/codingmoh/python-hello-world:${{ github.sha }}
+        tags: index.docker.io/codingmoh/python-hello-world:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'fhtw-hello'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_caf1f351626842fe864611c28966cbab }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_4dc72a46a47f4c85a4c3d8b53a24567c }}/codingmoh/python-hello-world:${{ github.sha }}'
+        images: 'index.docker.io/codingmoh/python-hello-world:${{ github.sha }}'
