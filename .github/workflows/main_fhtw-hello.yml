@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'fhtw-hello'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_caf1f351626842fe864611c28966cbab }}
+        publish-profile: ${{ secrets.publish_profile }}
         images: 'index.docker.io/codingmoh/python-hello-world:${{ github.sha }}'
