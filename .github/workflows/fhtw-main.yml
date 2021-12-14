@@ -37,5 +37,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: index.docker.io/codingmoh/python-helloworld:latest
+          tags: index.docker.io/codingmoh/python-helloworld:${{ github.sha }}
           file: ./Dockerfile
